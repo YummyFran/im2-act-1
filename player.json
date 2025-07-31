@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "justine",
+        "age": 38,
+        "jerseyNumber": 21,
+        "position": "waterboy"
+
+    },
+
+    {
+        "id": 2,
+        "name": "kaith",
+        "age": 36,
+        "jerseyNumber": 1,
+        "position": "waterboy"
+
+    }
+
+]
