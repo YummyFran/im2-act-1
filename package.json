@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "refresh": "node scripts/refresh.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,15 @@
     "url": "https://github.com/YummyFran/im2-act-1/issues"
   },
   "homepage": "https://github.com/YummyFran/im2-act-1#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.3",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  }
 }
