@@ -24,7 +24,16 @@ const findUserByEmail = async (email) => {
   return rows[0];
 };
 
+const findUserById = async (userId) => {
+    const [user] = await db.query(`SELECT * FROM users WHERE uid = ?`, [
+        userId
+    ])
+
+    return user
+}
+
 module.exports = {
   signup,
   findUserByEmail,
+  findUserById
 };

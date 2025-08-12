@@ -73,7 +73,7 @@ const login = async (req, res) => {
 
   try {
     const user = await authModel.findUserByEmail(email);
-    
+
     if (!user)
       return res.status(400).json({
         success: false,
@@ -87,11 +87,9 @@ const login = async (req, res) => {
         passwordError: "Incorrect password",
       });
 
-    const token = jwt.sign(
-      { id: user.uid },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+    const token = jwt.sign({ id: user.uid }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
 
     res.cookie("auth_token", token, {
       httpOnly: true,
@@ -113,7 +111,23 @@ const login = async (req, res) => {
   }
 };
 
+const getCurrentUser = async (req, res) => {
+  try {
+    const userId = req.user.id
+
+    const user = await authModel.findUserById(userId)
+
+    res.json({ success: true, user })
+  } catch (err) {
+    res.status(err.status || 500).json({
+      success: false,
+      error: "Internal Server Error",
+    });
+  }
+};
+
 module.exports = {
   signup,
   login,
+  getCurrentUser,
 };
